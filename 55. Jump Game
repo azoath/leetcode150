@@ -1,0 +1,21 @@
+//Input: nums = [2,3,1,1,4]
+//Output: true
+//Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
+
+class Solution {
+    public boolean canJump(int[] nums) {
+        int n=nums.length;
+        if(n==1) return true;
+
+        int max=0;
+        for(int index=0; index<n-1 && max>=index; index++){
+            if(max<index+nums[index]){
+                max=index+nums[index];
+            }
+            if(max>=n-1){
+                return true;
+            }
+        }
+        return false;
+    }
+}
